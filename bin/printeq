@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+temp_dir=$(mktemp -d)
+if [ ! -d $temp_dir ]; then
+	echo "Temp directory could not be created." >&2
+	exit 1
+fi
+trap "rm -rf $temp_dir" EXIT
+
+touch $temp_dir/doc.tex
+cat > $temp_dir/doc.tex <<TEX
+\documentclass[fleqn,preview]{standalone}
+\usepackage{amsmath, amssymb, esint, mhchem}
+\usepackage{xcolor}
+\definecolor{foreground}{RGB}{207, 210, 208}
+\everymath{\color{foreground}}
+\begin{document}
+\begin{align*}
+$1
+\end{align*}
+\end{document}
+TEX
+
+pdflatex_output=$(pdflatex -interaction=nonstopmode -output-directory=$temp_dir $temp_dir/doc.tex)
+if [ $? -eq 1 ]; then
+	echo "Latex compilation failed with following errors:" >&2
+	echo "$pdflatex_output" | sed -n "/^\! /s/^\! //p" >&2
+	exit 1
+fi
+
+convert -density 300 $temp_dir/doc.pdf -quality 90 -colorspace RGB $temp_dir/doc.png >/dev/null
+imgcat $temp_dir/doc.png
