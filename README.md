@@ -10,6 +10,6 @@ Requires working installation of latex, imagemagick, and imgcat.
 
 ## Example Usage
 
-<img src="https://i.ibb.co/rtT4JhN/ex1.png">
+<img src="https://i.ibb.co/rtT4JhN/ex1.png" style="zoom:50%;" width=300/>
 
-<img src="https://i.ibb.co/DtxkNcL/ex2.png">
+<img src="https://i.ibb.co/DtxkNcL/ex2.png" style="zoom:50%;" width=300/>
