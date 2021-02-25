@@ -10,6 +10,6 @@ Requires working installation of latex, imagemagick, and imgcat.
 
 ## Example Usage
 
-![ex1]("https://github.com/RayCurse/printeq/raw/main/images/ex1.png")
+![ex1]("https://ibb.co/fSB47WL")
 
-![ex2]("https://github.com/RayCurse/printeq/raw/main/images/ex2.png")
+![ex2]("https://ibb.co/jTcGd0H")
