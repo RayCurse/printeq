@@ -1,4 +1,4 @@
-# printtex
+# printeq
 
 Small script that prints a rendered latex equation to the output in a supported terminal emulator (currently only supports iterm2). I created the python module as a shorthand to viewing latex output of `Sympy.latex()` in a python terminal session.
 
